@@ -3,6 +3,7 @@ const { updateCloudflare } = require('./cloudflare');
 
 async function fritzboxHandler(req, res) {
   const { user, pass, domain, ip } = req.query;
+  console.log(req.query);
   console.log(`Set new IP ${ip} for ${domain} with ${user} from fritzbox`);
 
   const update = {
