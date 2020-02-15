@@ -1,0 +1,29 @@
+
+
+trigger:
+- master
+
+variables:
+  imageRepository: 'twsldev/cloudflare-dyndns'
+  containerRegistry: 'Docker'
+  tag: 'latest' #'$(Build.BuildId)'
+  vmImageName: 'ubuntu-latest'
+
+stages:
+- stage: Build
+  condition: always()
+  displayName: Build and push stage
+  jobs:  
+  - job: Build
+    displayName: Build job
+    pool:
+      vmImage: $(vmImageName)
+    steps:
+    - task: Docker@2
+      displayName: Build and push an image to container registry
+      inputs:
+        command: buildAndPush
+        repository: $(imageRepository)
+        containerRegistry: $(containerRegistry)
+        tags: |
+          $(tag)

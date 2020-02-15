@@ -1,0 +1,46 @@
+{
+  "name": "cloudflare-dyndns",
+  "version": "0.1.0",
+  "description": "Keep your Cloudflare DNS records up to date",
+  "main": "index.js",
+  "author": "twsl",
+  "license": "MIT",
+  "engines": {
+    "node": ">=10.15.0"
+  },
+  "scripts": {
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "npx eslint 'src/**/*.js' index.js",
+    "lint:fix": "npx eslint --fix 'src/**/*.js'",
+    "format": "npx prettier --write 'src/**/*.{js,json}' index.js *.*.json *.json"
+  },
+  "dependencies": {
+    "cloudflare": "^2.7.0",
+    "express": "^4.17.1",
+    "public-ip": "^4.0.0"
+  },
+  "devDependencies": {
+    "eslint": "^6.8.0",
+    "eslint-config-airbnb-base": "^14.0.0",
+    "eslint-config-prettier": "^6.10.0",
+    "eslint-plugin-import": "^2.20.1",
+    "eslint-plugin-node": "^11.0.0",
+    "eslint-plugin-prettier": "^3.1.2",
+    "husky": "^4.2.1",
+    "lint-staged": "^10.0.7",
+    "prettier": "^1.19.1"
+  },
+  "lint-staged": {
+    "./**/*.{js,json}": [
+      "prettier --write",
+      "eslint --fix",
+      "git add"
+    ]
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  }
+}

@@ -1,0 +1,46 @@
+{
+  "frequency": 0,
+  "ipv6Support": true,
+  "accounts": [
+    {
+      "credentials": {
+        "token": "token"
+      },
+      "zones": [
+        {
+          "name": "domain.tld",
+          "updates": [
+            {
+              "type": "A",
+              "domain": "dynamic.domain.tld",
+              "proxied": true
+            },
+            {
+              "type": "AAAA",
+              "domain": "dynamic.domain.tld",
+              "proxied": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "credentials": {
+        "email": "email@domain.tld",
+        "key": "password"
+      },
+      "zones": [
+        {
+          "name": "domain.tld",
+          "updates": [
+            {
+              "type": "A",
+              "domain": "dynamic.domain.tld",
+              "proxied": true
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
