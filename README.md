@@ -1,6 +1,6 @@
 # Cloudflare DynDns
 
-[![Build Status](https://dev.azure.com/twsl/cloudflare-dyndns/_apis/build/status/twsI.cloudflare-dyndns?branchName=master)](https://dev.azure.com/twsl/cloudflare-dyndns/_build/latest?definitionId=11&branchName=master)
+[![Build Status](https://dev.azure.com/twsl/cloudflare-dyndns/_apis/build/status/twsI.cloudflare-dyndns?branchName=master)](https://dev.azure.com/twsl/cloudflare-dyndns/_build/latest?definitionId=12&branchName=master)
 [![Docker Pulls](https://img.shields.io/docker/pulls/twsldev/cloudflare-dyndns)](https://hub.docker.com/r/twsldev/cloudflare-dyndns)
 
 Keep your Cloudflare DNS records up to date.
