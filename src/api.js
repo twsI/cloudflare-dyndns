@@ -12,7 +12,7 @@ router.use((req, res, next) => {
 });
 // define the home page route
 router.get('/', (req, res) => {
-  res.send('Hello World');
+  res.send('API');
 });
 router.get('/help', (req, res) => {
   const json = help();

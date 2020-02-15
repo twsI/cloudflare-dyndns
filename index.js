@@ -17,6 +17,10 @@ console.log(seperator);
 
 app.use('/api', api);
 
+app.get('/', (req, res) => {
+  res.send(`${packageInfo.name} ${packageInfo.version} by ${packageInfo.author}`);
+});
+
 const server = app.listen(port, () => {
   const host = server.address().address;
   console.log(`Server listening at http://${host}:${port}!`);
