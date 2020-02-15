@@ -5,28 +5,34 @@ const config = require('./../config.json');
 
 async function updateCloudflare(client, zone, ip, update) {
   const dnsBrowse = await client.dnsRecords.browse(zone.id).catch((error) => {
-    console.error(error.response.body);
+    console.error(JSON.stringify(error.response.body));
   });
   let updated = false;
 
-  for (const dns of dnsBrowse.result) {
-    if (dns.name === update.domain) {
-      if (dns.content !== ip) {
-        const dnsRecordNew = await client.dnsRecords
-          .edit(zone.id, dns.id, {
-            content: ip,
-            type: update.type,
-            proxied: update.proxied,
-            name: update.domain,
-          })
-          .catch((error) => {
-            console.error(error.response.body);
-          });
+  if (dnsBrowse.result) {
+    for (const dns of dnsBrowse.result) {
+      if (dns.name === update.domain) {
+        if (dns.content !== ip) {
+          const dnsRecordNew = await client.dnsRecords
+            .edit(zone.id, dns.id, {
+              content: ip,
+              type: update.type,
+              proxied: update.proxied,
+              name: update.domain,
+            })
+            .catch((error) => {
+              console.error(JSON.stringify(error.response.body));
+            });
 
-        updated = true;
-        console.log(`DNS update for ${dns.name} successfull: ${JSON.stringify(dnsRecordNew.result)}`);
-      } else {
-        console.log(`DNS for ${dns.name} was not updated because IP did not change`);
+          if (dnsRecordNew.result) {
+            updated = true;
+            console.log(`DNS update for ${dns.name} successfull: ${JSON.stringify(dnsRecordNew.result)}`);
+          } else {
+            console.log(`DNS update for ${dns.name} failed`);
+          }
+        } else {
+          console.log(`DNS for ${dns.name} was not updated because IP did not change`);
+        }
       }
     }
   }
@@ -61,7 +67,7 @@ async function updateAll() {
     const client = cf(cfConfig);
 
     const zonesBrowse = await client.zones.browse().catch((error) => {
-      console.error(error.response.body);
+      console.error(JSON.stringify(error.response.body));
     });
 
     for (const zone of zonesBrowse.result) {
