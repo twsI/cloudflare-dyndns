@@ -1,7 +1,8 @@
 function helpInfo() {
   const info = {
     fritzbox: {
-      UpdateURL: 'http://your-domain.tld/api/fritzbox?user=<username>&pass=<pass>&domain=<domain>&ip=<ipaddr>&ip6=<ip6addr>',
+      UpdateURL:
+        'http://container-ip:8080/api/fritzbox?user=<username>&pass=<pass>&domain=<domain>&ip=<ipaddr>&ip6=<ip6addr>',
       Domainname: 'dyndns.your-domain.tld',
       Username: 'your-cloudflare-email-address',
       Password: 'your-cloudflare-api-key',
