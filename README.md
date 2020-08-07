@@ -1,3 +1,6 @@
+I decided to use [cloudflare-ddns](https://github.com/hotio/docker-cloudflare-ddns) and will no longer maintain this repository.
+---
+
 # Cloudflare DynDns
 
 [![Build Status](https://dev.azure.com/twsl/cloudflare-dyndns/_apis/build/status/twsI.cloudflare-dyndns?branchName=master)](https://dev.azure.com/twsl/cloudflare-dyndns/_build/latest?definitionId=12&branchName=master)
